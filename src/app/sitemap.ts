@@ -1,11 +1,11 @@
 import type { MetadataRoute } from "next";
 
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://anani.online";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://abdulrahman-alanani.vercel.app";
   return [
     {
-      url: base,
+      url: SITE,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,

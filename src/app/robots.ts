@@ -1,10 +1,10 @@
 import type { MetadataRoute } from "next";
 
+const SITE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://anani.online";
+
 export default function robots(): MetadataRoute.Robots {
-  const base =
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://abdulrahman-alanani.vercel.app";
   return {
     rules: { userAgent: "*", allow: "/" },
-    sitemap: `${base}/sitemap.xml`,
+    sitemap: `${SITE}/sitemap.xml`,
   };
 }

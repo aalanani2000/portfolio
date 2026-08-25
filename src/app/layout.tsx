@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import { IBM_Plex_Sans_Arabic, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -30,9 +30,9 @@ const grotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://abdulrahman-alanani.vercel.app",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://anani.online",
   ),
-  title: "Abdulrahman Alanani — AI Engineer",
+  title: "Abdulrahman Alanani â€” AI Engineer",
   description:
     "AI Engineer in Riyadh building intelligent systems that connect AI models with real-world software, automation, data, and hardware.",
   keywords: [
@@ -43,14 +43,14 @@ export const metadata: Metadata = {
     "Computer Vision",
     "FastAPI",
     "Automation",
-    "مهندس ذكاء اصطناعي",
+    "Ù…Ù‡Ù†Ø¯Ø³ Ø°ÙƒØ§Ø¡ Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
   ],
   alternates: {
     canonical: "/",
     languages: { en: "/", ar: "/" },
   },
     openGraph: {
-      title: "Abdulrahman Alanani — AI Engineer",
+      title: "Abdulrahman Alanani â€” AI Engineer",
       description:
         "From model to production. From software to the physical world.",
       type: "website",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Abdulrahman Alanani — AI Engineer",
+      title: "Abdulrahman Alanani â€” AI Engineer",
       description:
         "From model to production. From software to the physical world.",
     },
@@ -105,7 +105,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                 addressCountry: "SA",
               },
               email: "mailto:aalanani.2000@gmail.com",
-              url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://abdulrahman-alanani.vercel.app",
+              url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://anani.online",
               sameAs: [
                 "https://www.linkedin.com/in/abdulrahman-alanani",
                 "https://github.com/aalanani2000",
