@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abdulrahman Alanani — AI Engineer Portfolio
 
-## Getting Started
+An interactive, bilingual (EN/AR) portfolio that behaves like a live AI system: boot sequence, telemetry spine, knowledge-graph skills map, 3D drone mission control, and a real RAG-powered assistant that answers questions about Abdulrahman from a grounded knowledge base.
 
-First, run the development server:
+> From model to production. From software to the physical world.
+
+## Stack
+
+- **Next.js 16** (App Router) + **TypeScript** + **Tailwind CSS v4**
+- **Framer Motion** (LazyMotion) + **React Three Fiber** (3D drone)
+- **RAG assistant**: build-time TF-IDF index (`src/kb/kb.json`) + in-memory cosine retrieval + **DeepSeek** `deepseek-chat` streaming via `/api/chat`
+- Full **EN ⇄ AR** i18n with automatic RTL, pre-hydration locale restore
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env   # add DEEPSEEK_API_KEY (server-side only)
+npm run dev            # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Production:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Rebuilding the RAG knowledge base
 
-## Learn More
+Edit markdown sources in `src/kb/documents/*.md`, then:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+node scripts/build-kb.ts
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This re-chunks every document by section and regenerates the sparse TF-IDF vectors in `src/kb/kb.json` (committed, so no build-time services are needed).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment (Vercel)
 
-## Deploy on Vercel
+1. Push to GitHub, import the repo in Vercel.
+2. Add environment variable `DEEPSEEK_API_KEY`.
+3. Deploy — everything else (fonts, KB index) is bundled at build time.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+src/
+├── app/            # App Router: page, layout, /api/chat
+├── components/     # Hero, SkillsMap, ProjectsLab, DroneSection (+ drone/ 3D),
+│                   # HowIThink, BuildWithMe, Journey, PortfolioArchitecture,
+│                   # Contact, chat/, SignalSpine, VisitorModal …
+├── content/data.ts # Bilingual entities: skills graph, pipelines, journey
+├── i18n/           # en.ts / ar.ts dictionaries + LanguageProvider (RTL)
+├── kb/             # documents/ (RAG sources) + kb.json (generated index)
+└── lib/            # retrieval, useChat, tokenize, sound, visitor, use3d
+scripts/build-kb.ts # KB chunker + indexer
+```
+
+## Notes
+
+- The chatbot retrieves before answering, cites `[S1]…` sources, refuses when information is missing, and replies in the user's language (Arabic or English).
+- Motion respects `prefers-reduced-motion`; the 3D drone falls back to a 2D schematic on low-power devices.
+- Drone project is closed-source (university property) — all facts sourced from the official project report.
+
+---
+
+Designed & engineered by Abdulrahman Alanani · [LinkedIn](https://linkedin.com/in/abdulrahman-alanani) · [GitHub](https://github.com/aalanani2000)
