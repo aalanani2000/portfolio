@@ -10,7 +10,7 @@ export const LINKS = {
     alrouf: "https://github.com/aalanani2000/al-rouf-ai-integration-assessment",
     drone: "",
     llmJourney: "https://github.com/aalanani2000/llm-engineering-journey",
-    mlInternship: "",
+    mlInternship: "https://github.com/aalanani2000/ml-internship-project",
   },
 };
 

@@ -240,6 +240,9 @@ export default function ProjectsLab() {
                     </li>
                   ))}
                 </ul>
+                <div className="mt-auto pt-5">
+                  <RepoLink href={LINKS.repos.mlInternship} />
+                </div>
               </div>
             </div>
           </m.div>
