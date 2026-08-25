@@ -92,6 +92,14 @@ export default function VisitorModal() {
     setOpen(false);
   };
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    if (open) window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   return (
     <AnimatePresence>
       {open && (
@@ -113,6 +121,7 @@ export default function VisitorModal() {
             className="glass-panel backdrop-blur-xl w-full max-w-xl rounded-2xl p-6 sm:p-8"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
+            aria-modal="true"
             aria-label={v.title}
           >
             <p className="mono-label mb-2">SYSTEM QUERY</p>

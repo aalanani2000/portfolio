@@ -90,6 +90,12 @@ export async function POST(req: NextRequest) {
     return Response.json({ error: "bad_request" }, { status: 400 });
   }
 
+  const MAX_MESSAGE_CHARS = 2000;
+  const oversized = history.some((m) => m.content.length > MAX_MESSAGE_CHARS);
+  if (oversized) {
+    return Response.json({ error: "bad_request" }, { status: 400 });
+  }
+
   const persona: Persona =
     body.persona === "engineer" || body.persona === "student"
       ? body.persona

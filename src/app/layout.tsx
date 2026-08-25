@@ -49,15 +49,21 @@ export const metadata: Metadata = {
     canonical: "/",
     languages: { en: "/", ar: "/" },
   },
-  openGraph: {
-    title: "Abdulrahman Alanani — AI Engineer",
-    description:
-      "From model to production. From software to the physical world.",
-    type: "website",
-    locale: "en_US",
-    alternateLocale: ["ar_SA"],
-  },
-};
+    openGraph: {
+      title: "Abdulrahman Alanani — AI Engineer",
+      description:
+        "From model to production. From software to the physical world.",
+      type: "website",
+      locale: "en_US",
+      alternateLocale: ["ar_SA"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Abdulrahman Alanani — AI Engineer",
+      description:
+        "From model to production. From software to the physical world.",
+    },
+  };
 
 export const viewport: Viewport = {
   themeColor: "#050d17",
@@ -79,6 +85,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         />
       </head>
       <body className="min-h-full flex flex-col bg-bg text-hi">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:start-3 focus:z-[100] focus:rounded-full focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        >
+          Skip to content
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -24,6 +24,11 @@ export default function ChatPanel({
   });
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight });
@@ -45,7 +50,11 @@ export default function ChatPanel({
     <div
       className="glass-panel backdrop-blur-xl fixed bottom-4 end-4 z-[80] flex h-[min(600px,calc(100dvh-2rem))] w-[min(430px,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl"
       role="dialog"
+      aria-modal="false"
       aria-label={c.title}
+      onKeyDown={(e) => {
+        if (e.key === "Escape" && !streaming) onClose();
+      }}
     >
       <div className="flex items-center justify-between border-b border-line px-4 py-3">
         <div className="flex items-center gap-3">
@@ -168,6 +177,7 @@ export default function ChatPanel({
       <div className="border-t border-line p-3">
         <div className="flex items-center gap-2">
           <input
+            ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && submit()}

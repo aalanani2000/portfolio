@@ -25,7 +25,7 @@ export default function Home() {
         <div className="noise-layer" aria-hidden />
         <SignalSpine />
         <Navbar />
-        <main className="flex-1">
+        <main id="main" className="flex-1">
           <Hero />
           <Marquee />
           <About />
