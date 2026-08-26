@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://anani.online",
   ),
-  title: "Abdulrahman Alanani â€” AI Engineer",
+  title: "Abdulrahman Alanani — AI Engineer",
   description:
     "AI Engineer in Riyadh building intelligent systems that connect AI models with real-world software, automation, data, and hardware.",
   keywords: [
@@ -43,23 +43,23 @@ export const metadata: Metadata = {
     "Computer Vision",
     "FastAPI",
     "Automation",
-    "Ù…Ù‡Ù†Ø¯Ø³ Ø°ÙƒØ§Ø¡ Ø§ØµØ·Ù†Ø§Ø¹ÙŠ",
+    "مهندس ذكاء اصطناعي",
   ],
   alternates: {
     canonical: "/",
     languages: { en: "/", ar: "/" },
   },
     openGraph: {
-      title: "Abdulrahman Alanani â€” AI Engineer",
-      description:
-        "From model to production. From software to the physical world.",
-      type: "website",
+    title: "Abdulrahman Alanani — AI Engineer",
+    description:
+      "From model to production. From software to the physical world.",
+    type: "website",
       locale: "en_US",
       alternateLocale: ["ar_SA"],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Abdulrahman Alanani â€” AI Engineer",
+      title: "Abdulrahman Alanani — AI Engineer",
       description:
         "From model to production. From software to the physical world.",
     },
