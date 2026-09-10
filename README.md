@@ -1,4 +1,4 @@
-﻿# Abdulrahman Alanani â€” AI Engineer Portfolio
+﻿# Abdulrahman Alanani AI Engineer Portfolio
 
 **Live: [anani.online](https://anani.online)**
 
